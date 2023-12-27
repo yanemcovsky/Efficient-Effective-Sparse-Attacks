@@ -1116,6 +1116,7 @@ def compute_data_args(args):
          998: 'ear, spike, capitulum',
          999: 'toilet tissue, toilet paper, bathroom tissue'}
         imagenet_data_dir = args.data_dir + '/imagenet'
+        args.labels_str_dict = [label.split(',')[0].replace(' ', '_') for label in args.labels_str_dict] #Avoid spaces and long labels
         if args.n_examples > 5000:
             args.n_examples = 5000 # load limitation
         args.n_classes = 1000
